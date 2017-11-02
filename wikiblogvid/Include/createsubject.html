@@ -1,0 +1,54 @@
+<form method="POST" action="" autocomplete="off">
+<div class="divPage">
+	create subject
+	
+	<br />
+	<label class="rowtextlabelright">Select subject</label>
+	
+	&nbsp;
+				<select  name="subject"  onchange ="this.form.submit();">  
+					<option value="">Select</option>					    
+						<?php foreach($subjects_rows as $subject):?>						
+							<option value ="<?php echo $subject['subjectid'] ?>" <?php if($subject_selected == $subject['subjectid']) echo 'selected="selected"' ?>><?php echo $subject['title']?></option>							
+					<?php endforeach;?>		
+				</select>
+				&nbsp;&nbsp;&nbsp;&nbsp; 
+				<input type="submit" value="Add new subject" name="show_add_new" />
+					
+				<br />
+				<br />
+				
+				<label class="rowtextlabel2" >Subject</label>
+				<input  type="text"  name ="subject_title" value="<?php echo $subject_title; ?>"  />
+				<br />
+				
+				
+				<label class="rowtextlabel2" >Status: </label>
+				
+					<select name="status_selected"  >
+												
+							<option value ="1" <?php if( 1 == $status) echo 'selected="selected"' ?>>1</option>							
+							<option value ="0" <?php if( 0 == $status) echo 'selected="selected"' ?>>0</option>							
+									
+				</select>
+				<input type="submit" value="Update" name ="update" />
+				<br/>
+				
+				<?php if( $show == 1 ) { ?>
+				
+				<input type ="text" name="new_subject" /> &nbsp;<input type="submit" value ="Save" name ="add_subject" />
+				<?php } ?>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</div>
+</form>

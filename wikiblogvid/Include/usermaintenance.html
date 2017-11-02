@@ -1,0 +1,45 @@
+<form method="POST" action="" autocomplete="off">
+<div class="divPage">
+	user maintenance
+	<br />
+	<label class="rowtextlabelright">Select user:</label>
+	
+	&nbsp;
+				<select  name="user_selected"  onchange ="this.form.submit();">  
+					<option value="">Select</option>					    
+						<?php foreach($users_rows as $user):?>						
+							<option value ="<?php echo $user['userid'] ?>" <?php if($user_selected == $user['userid']) echo 'selected="selected"' ?>><?php echo $user['firstname']." ".$user['lastname']  ?></option>							
+					<?php endforeach;?>		
+				</select>
+				&nbsp;&nbsp;&nbsp;&nbsp; 
+				
+					
+				<br />
+			<label class="rowtextlabel2" >First Name</label>
+				<input  type="text"  name ="first_name" value="<?php echo $first_name; ?>"  />
+				&nbsp;&nbsp;&nbsp;
+				<label class="rowtextlabel2" >Last Name</label>
+				<input  type="text"  name ="last_name" value="<?php echo $last_name; ?>"  />
+				<br /><br />
+	
+				<label class="rowtextlabel2" >User id</label>
+				<input  type="text"  name ="user_id" value="<?php echo $user_id; ?>"  />
+				&nbsp;&nbsp;&nbsp;
+				<label class="rowtextlabel2" >Status: </label>
+				
+					<select name="status_selected"  >
+												
+							<option value ="1" <?php if( 1 == $status) echo 'selected="selected"' ?>>1</option>							
+							<option value ="0" <?php if( 0 == $status) echo 'selected="selected"' ?>>0</option>							
+									
+				</select>
+				&nbsp;&nbsp;&nbsp;
+				<input type="submit" name="update" value="Update" />
+				<br/><br/>
+				<br /><br />
+				<label class="rowtextlabel2" >Password: </label>
+				<input type ="text" name="new_password" /> &nbsp;&nbsp;<input type="submit" name="save_password" value= "Save Password"  />
+				<br />
+				<div style="color:red;" ><?php echo $msg;?></div>
+</div>
+</form>
